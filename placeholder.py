@@ -21,25 +21,21 @@ settings.configure(
 	DEBUG=DEBUG,
 	SECRET_KEY=SECRET_KEY,
 	ALLOWED_HOSTS=ALLOWED_HOSTS,
-	ROOT_URLCONF=__name__,
-	MIDDLEWARE_CLASSES=(
-		'django.middleware.common.CommonMiddleware',
-		'django.middleware.csrf.CsrfViewMiddleware',
-		'django.middleware.clickjacking.XFrameOptionsMiddleware',
-	),
+	ROOT_URLCONF='sitebuilder.urls',
+	MIDDLEWARE_CLASSES=(),
 	INSTALLED_APPS=(
+		'sitebuilder',
 		'django.contrib.staticfiles',
 	),
 	TEMPLATES=(
 		{
 			'BACKEND': 'django.template.backends.django.DjangoTemplates',
-			'DIRS': (os.path.join(BASE_DIR, 'templates'), ),
+			'DIRS': [],
+			'APP_DIRS': True,
 		},
 	),
-	STATICFILES_DIRS=(
-		os.path.join(BASE_DIR, 'static'),
-	),
 	STATIC_URL='/static/',
+	SITE_PAGES_DIRECTORY=os.path.join(BASE_DIR, 'pages'),
 )
 
 
